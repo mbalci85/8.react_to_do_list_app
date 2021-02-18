@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Todos from './components/Todos';
 
 export class App extends Component {
 	state = {
@@ -21,10 +22,21 @@ export class App extends Component {
 			},
 		],
 	};
+
+	// toggleChecked =(id)=> {
+	// 	this.setState({
+	// 		isChecked:
+	// 	})
+	// }
+
 	render() {
 		return (
 			<div className="App">
 				<h1>TODO LIST</h1>
+				<Todos
+					todos={this.state.todos}
+					toggleChecked={this.toggleChecked}
+				/>
 			</div>
 		);
 	}
