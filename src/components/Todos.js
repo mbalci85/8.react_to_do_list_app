@@ -10,6 +10,7 @@ export class Todos extends Component {
 						key={todo.id}
 						todo={todo}
 						toggleChecked={this.props.toggleChecked}
+						deleteToDo={this.props.deleteToDo}
 					/>
 				))}
 			</div>

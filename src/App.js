@@ -34,6 +34,12 @@ export class App extends Component {
 		});
 	};
 
+	deleteToDo = (id) => {
+		this.setState({
+			todos: this.state.todos.filter((todo) => todo.id !== id),
+		});
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -41,6 +47,7 @@ export class App extends Component {
 				<Todos
 					todos={this.state.todos}
 					toggleChecked={this.toggleChecked}
+					deleteToDo={this.deleteToDo}
 				/>
 			</div>
 		);

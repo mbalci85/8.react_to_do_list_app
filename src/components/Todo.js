@@ -8,7 +8,7 @@ export class Todo extends Component {
 					style={{
 						textAlign: 'left',
 						backgroundColor: '#f3f3f3',
-						paddingLeft: 20,
+						padding: '20px 30px',
 						textDecoration: this.props.todo.isChecked
 							? 'line-through'
 							: 'none',
@@ -23,6 +23,19 @@ export class Todo extends Component {
 						)}
 					/>
 					{this.props.todo.task}
+					<button
+						style={{
+							float: 'right',
+							border: 'solid 1px',
+							backgroundColor: 'red',
+							padding: '7px 11px',
+							borderRadius: '50%',
+							fontWeight: 'bolder',
+						}}
+						onClick={this.props.deleteToDo.bind(this, this.props.todo.id)}
+					>
+						X
+					</button>
 				</h2>
 			</div>
 		);
