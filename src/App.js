@@ -23,11 +23,16 @@ export class App extends Component {
 		],
 	};
 
-	// toggleChecked =(id)=> {
-	// 	this.setState({
-	// 		isChecked:
-	// 	})
-	// }
+	toggleChecked = (id) => {
+		this.setState({
+			todos: this.state.todos.map((todo) => {
+				if (todo.id === id) {
+					todo.isChecked = !todo.isChecked;
+				}
+				return todo;
+			}),
+		});
+	};
 
 	render() {
 		return (

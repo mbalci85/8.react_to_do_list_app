@@ -17,10 +17,10 @@ export class Todo extends Component {
 					<input
 						type="checkbox"
 						style={{ marginRight: 20 }}
-						// onChange={this.props.toggleChecked.bind(
-						// 	this,
-						// 	this.props.todo.id,
-						// )}
+						onClick={this.props.toggleChecked.bind(
+							this,
+							this.props.todo.id,
+						)}
 					/>
 					{this.props.todo.task}
 				</h2>
