@@ -44,11 +44,23 @@ export class App extends Component {
 		return (
 			<div className="App">
 				<h1>TODO LIST</h1>
-				<Todos
-					todos={this.state.todos}
-					toggleChecked={this.toggleChecked}
-					deleteToDo={this.deleteToDo}
-				/>
+				{this.state.todos.length !== 0 ? (
+					<Todos
+						todos={this.state.todos}
+						toggleChecked={this.toggleChecked}
+						deleteToDo={this.deleteToDo}
+					/>
+				) : (
+					<h1
+						style={{
+							color: 'coral',
+							marginTop: 150,
+							fontWeight: 'bolder',
+						}}
+					>
+						No Task to Show
+					</h1>
+				)}
 			</div>
 		);
 	}
