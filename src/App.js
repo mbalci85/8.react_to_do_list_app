@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import AddToDo from './components/AddToDo';
 import Todos from './components/Todos';
 
 export class App extends Component {
@@ -44,6 +45,7 @@ export class App extends Component {
 		return (
 			<div className="App">
 				<h1>TODO LIST</h1>
+				<AddToDo />
 				{this.state.todos.length !== 0 ? (
 					<Todos
 						todos={this.state.todos}
