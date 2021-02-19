@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { uuid } from 'uuidv4';
 import './App.css';
 import AddToDo from './components/AddToDo';
 import Todos from './components/Todos';
@@ -7,17 +8,17 @@ export class App extends Component {
 	state = {
 		todos: [
 			{
-				id: 1,
+				id: uuid(),
 				task: 'Go',
 				isChecked: false,
 			},
 			{
-				id: 2,
+				id: uuid(),
 				task: 'Do',
 				isChecked: false,
 			},
 			{
-				id: 3,
+				id: uuid(),
 				task: 'Come',
 				isChecked: false,
 			},
@@ -43,7 +44,7 @@ export class App extends Component {
 
 	addToDo = (task) => {
 		const newTask = {
-			id: Math.floor(Math.random() * 1000000 + 5),
+			id: uuid(),
 			task,
 			isChecked: false,
 		};
