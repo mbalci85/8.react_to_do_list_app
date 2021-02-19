@@ -50,6 +50,7 @@ export class App extends Component {
 		this.setState({
 			todos: [...this.state.todos, newTask],
 		});
+		console.log(newTask.id);
 	};
 
 	render() {

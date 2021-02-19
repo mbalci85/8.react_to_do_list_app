@@ -26,6 +26,7 @@ export class AddToDo extends Component {
 						type="text"
 						placeholder="Enter a task"
 						onChange={this.handleInput}
+						value={this.state.newTask}
 					/>
 					<button type="submit">Add ToDo</button>
 				</form>
