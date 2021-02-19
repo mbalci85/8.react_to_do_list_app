@@ -41,11 +41,22 @@ export class App extends Component {
 		});
 	};
 
+	addToDo = (task) => {
+		const newTask = {
+			id: Math.floor(Math.random() * 1000000 + 5),
+			task,
+			isChecked: false,
+		};
+		this.setState({
+			todos: [...this.state.todos, newTask],
+		});
+	};
+
 	render() {
 		return (
 			<div className="App">
 				<h1>TODO LIST</h1>
-				<AddToDo />
+				<AddToDo addToDo={this.addToDo} />
 				{this.state.todos.length !== 0 ? (
 					<Todos
 						todos={this.state.todos}
