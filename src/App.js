@@ -48,7 +48,7 @@ export class App extends Component {
 			isChecked: false,
 		};
 		this.setState({
-			todos: [...this.state.todos, newTask],
+			todos: task !== '' ? [...this.state.todos, newTask] : this.state.todos,
 		});
 		console.log(newTask.id);
 	};
