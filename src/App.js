@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { uuid } from 'uuidv4';
 import './App.css';
 import AddToDo from './components/AddToDo';
@@ -56,27 +57,36 @@ export class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-				<h1>TODO LIST</h1>
-				<AddToDo addToDo={this.addToDo} />
-				{this.state.todos.length !== 0 ? (
-					<Todos
-						todos={this.state.todos}
-						toggleChecked={this.toggleChecked}
-						deleteToDo={this.deleteToDo}
+			<Router>
+				<div className="App">
+					<h1>TODO LIST</h1>
+					<Route
+						path="/"
+						render={(props) => (
+							<React.Fragment>
+								<AddToDo addToDo={this.addToDo} />
+								{this.state.todos.length !== 0 ? (
+									<Todos
+										todos={this.state.todos}
+										toggleChecked={this.toggleChecked}
+										deleteToDo={this.deleteToDo}
+									/>
+								) : (
+									<h1
+										style={{
+											color: 'coral',
+											marginTop: 150,
+											fontWeight: 'bolder',
+										}}
+									>
+										No Task to Show
+									</h1>
+								)}
+							</React.Fragment>
+						)}
 					/>
-				) : (
-					<h1
-						style={{
-							color: 'coral',
-							marginTop: 150,
-							fontWeight: 'bolder',
-						}}
-					>
-						No Task to Show
-					</h1>
-				)}
-			</div>
+				</div>
+			</Router>
 		);
 	}
 }
