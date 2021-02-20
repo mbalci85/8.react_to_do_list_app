@@ -9,7 +9,7 @@ export class Todo extends Component {
 						textAlign: 'left',
 						backgroundColor: '#f3f3f3',
 						padding: '20px 30px',
-						textDecoration: this.props.todo.isChecked
+						textDecoration: this.props.todo.completed
 							? 'line-through'
 							: 'none',
 					}}

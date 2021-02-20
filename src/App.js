@@ -12,17 +12,17 @@ export class App extends Component {
 			{
 				id: uuid(),
 				task: 'Go',
-				isChecked: false,
+				completed: false,
 			},
 			{
 				id: uuid(),
 				task: 'Do',
-				isChecked: false,
+				completed: false,
 			},
 			{
 				id: uuid(),
 				task: 'Come',
-				isChecked: false,
+				completed: false,
 			},
 		],
 	};
@@ -31,7 +31,7 @@ export class App extends Component {
 		this.setState({
 			todos: this.state.todos.map((todo) => {
 				if (todo.id === id) {
-					todo.isChecked = !todo.isChecked;
+					todo.completed = !todo.completed;
 				}
 				return todo;
 			}),
