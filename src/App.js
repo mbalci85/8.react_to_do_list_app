@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { uuid } from 'uuidv4';
@@ -9,23 +10,33 @@ import About from './pages/About';
 export class App extends Component {
 	state = {
 		todos: [
-			{
-				id: uuid(),
-				task: 'Go',
-				completed: false,
-			},
-			{
-				id: uuid(),
-				task: 'Do',
-				completed: false,
-			},
-			{
-				id: uuid(),
-				task: 'Come',
-				completed: false,
-			},
+			// {
+			// 	id: uuid(),
+			// 	title: 'Go',
+			// 	completed: false,
+			// },
+			// {
+			// 	id: uuid(),
+			// 	title: 'Do',
+			// 	completed: false,
+			// },
+			// {
+			// 	id: uuid(),
+			// 	title: 'Come',
+			// 	completed: false,
+			// },
 		],
 	};
+
+	componentDidMount() {
+		axios
+			.get('http://jsonplaceholder.typicode.com/todos?_limit=10')
+			.then((res) =>
+				this.setState({
+					todos: res.data,
+				}),
+			);
+	}
 
 	toggleChecked = (id) => {
 		this.setState({
@@ -44,14 +55,15 @@ export class App extends Component {
 		});
 	};
 
-	addToDo = (task) => {
+	addToDo = (title) => {
 		const newTask = {
 			id: uuid(),
-			task,
-			isChecked: false,
+			title,
+			completed: false,
 		};
 		this.setState({
-			todos: task !== '' ? [...this.state.todos, newTask] : this.state.todos,
+			todos:
+				title !== '' ? [...this.state.todos, newTask] : this.state.todos,
 		});
 		console.log(newTask.id);
 	};

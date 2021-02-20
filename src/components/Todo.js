@@ -22,7 +22,7 @@ export class Todo extends Component {
 							this.props.todo.id,
 						)}
 					/>
-					{this.props.todo.task}
+					{this.props.todo.title}
 					<button
 						style={{
 							float: 'right',
