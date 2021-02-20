@@ -61,8 +61,12 @@ export class App extends Component {
 			<Router>
 				<div className="App">
 					<h1>TODO LIST</h1>
-					<Link to="/">Home | </Link>
-					<Link to="/about">About</Link>
+					<Link to="/" style={{ textDecoration: 'none' }}>
+						Home |{' '}
+					</Link>
+					<Link to="/about" style={{ textDecoration: 'none' }}>
+						About
+					</Link>
 					<br />
 					<br />
 					<Route
