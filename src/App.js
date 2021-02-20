@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { uuid } from 'uuidv4';
 import './App.css';
 import AddToDo from './components/AddToDo';
 import Todos from './components/Todos';
+import About from './pages/About';
 
 export class App extends Component {
 	state = {
@@ -60,11 +61,17 @@ export class App extends Component {
 			<Router>
 				<div className="App">
 					<h1>TODO LIST</h1>
+					<Link to="/">Home | </Link>
+					<Link to="/about">About</Link>
+					<br />
+					<br />
 					<Route
 						path="/"
+						exact
 						render={(props) => (
 							<React.Fragment>
 								<AddToDo addToDo={this.addToDo} />
+								<br />
 								{this.state.todos.length !== 0 ? (
 									<Todos
 										todos={this.state.todos}
@@ -85,6 +92,7 @@ export class App extends Component {
 							</React.Fragment>
 						)}
 					/>
+					<Route path="/about" component={About} />
 				</div>
 			</Router>
 		);
