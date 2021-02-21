@@ -56,16 +56,26 @@ export class App extends Component {
 	};
 
 	addToDo = (title) => {
-		const newTask = {
-			id: uuid(),
-			title,
-			completed: false,
-		};
-		this.setState({
-			todos:
-				title !== '' ? [...this.state.todos, newTask] : this.state.todos,
-		});
-		console.log(newTask.id);
+		// const newTask = {
+		// 	id: uuid(),
+		// 	title,
+		// 	completed: false,
+		// };
+
+		axios
+			.post('http://jsonplaceholder.typicode.com/todos', {
+				id: uuid(),
+				title,
+				completed: false,
+			})
+			.then((res) =>
+				this.setState({
+					todos:
+						title !== ''
+							? [...this.state.todos, res.data]
+							: this.state.todos,
+				}),
+			);
 	};
 
 	render() {
